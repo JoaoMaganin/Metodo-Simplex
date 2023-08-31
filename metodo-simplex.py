@@ -52,7 +52,7 @@ class Simplex:
     def mostra_tabela(self):
         for i in range(len(self.tabela)):
             for j in range(len(self.tabela[0])):
-                print(f"{self.tabela[i][j]}    ", end="")
+                print(f"{self.tabela[i][j]:.2f}        ", end="")
             print()
 
     def eh_negativo(self):  # Verifica se a linha Z tem valores negativos
@@ -151,13 +151,22 @@ if __name__ == "__main__":
         2x1 + x2 + s1 = 100
         x1 + x2 + s2 = 80
         x1 + s3 = 40
+        
+        z = 4x1 + x2
+        9x1 + x2 + f1 = 18
+        3x1 + x2 + f2 = 12
+        
+        normalizando
+        
+        z - 4x1 - x2 = 0
+        9x1 + x2 + f1 = 18
+        3x1 + x2 + f2 = 12
     """
     simplex = Simplex()
 
-    simplex.set_funcao_objetivo([1,-3,-2,0,0,0,0])
+    simplex.set_funcao_objetivo([1,-4,-1,0,0,0])
 
-    simplex.add_restricoes([0,2,1,1,0,0,100])
-    simplex.add_restricoes([0,1,1,0,1,0,80])
-    simplex.add_restricoes([0,1,0,0,0,1,40])
+    simplex.add_restricoes([0,9,1,1,0,18])
+    simplex.add_restricoes([0,3,1,0,1,12])
 
     simplex.resolve()
